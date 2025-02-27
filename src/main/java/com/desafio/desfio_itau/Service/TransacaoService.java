@@ -1,6 +1,7 @@
 package com.desafio.desfio_itau.Service;
 
 import com.desafio.desfio_itau.DTO.TransacaoDTORequest;
+import com.desafio.desfio_itau.Exceptions.UnprocessableEntity;
 import org.springframework.stereotype.Service;
 
 import java.time.OffsetDateTime;
@@ -15,11 +16,11 @@ public class TransacaoService {
     public void receberTransacoes(TransacaoDTORequest dto){
 
         if (dto.dataHora().isAfter(OffsetDateTime.now())){
-            throw new RuntimeException("A transação não deve ocorrer no futuro");
+            throw new UnprocessableEntity("A transação não deve ocorrer no futuro");
         }
 
         if (dto.valor() < 0){
-            throw new RuntimeException("A transação não pode ter valor negativo");
+            throw new UnprocessableEntity("A transação não pode ter valor negativo");
         }
 
         transacoes.add(dto);
