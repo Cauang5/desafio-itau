@@ -2,7 +2,6 @@ package com.desafio.desfio_itau.Controller;
 
 import com.desafio.desfio_itau.DTO.TransacaoDTORequest;
 import com.desafio.desfio_itau.Service.TransacaoService;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
